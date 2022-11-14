@@ -1,8 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+:root{
+  --offset: 15px;
+}
+
 html,
 body {
+  /*font-size: 0.052084vw;*/
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -23,4 +32,79 @@ a {
     color: white;
     background: black;
   }
+}
+@media screen and (max-width: 819.7px) {
+  .title{
+    font-size: 50px;
+  }
+}
+
+.title{
+  color: #FFF;
+  text-align: center;
+  font-family: 'lato',sans-serif;
+  font-weight: 300;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.title span{
+  background: -webkit-linear-gradient(white, #38495a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.containerApp{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 2rem 7rem;
+}
+
+.containerCheckout{
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767.7px) {
+  .containerCheckout{
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.containerPayments{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.containerSvgYandex{
+  width: 20px;
+  height: 20px;
+}
+
+.containerSvgYandex svg>circle {
+  transform: scale(0.5555);
+}
+
+.containerSvgYandex svg>path {
+  transform: scale(0.5555);
+}
+
+.containerSearch, .containerFooter{
+  width: calc(100% - (2rem * 2));
+}
+
+.form-sticky{
+  top: calc(var(--offset, 0px) + var(--is-header-fixed, 0)*var(--header-height, 0)*1px);
+}
+
+.custom-break{
+  word-break: break-word;
 }
