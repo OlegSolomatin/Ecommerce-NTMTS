@@ -28,8 +28,8 @@ export default function Home({products}) {
                                 <span>{categoryName}</span>
                             </h2>
                             <main className='productsItem flex gap-2 items-center justify-center tabletM:justify-start flex-wrap'>
-                                {products.filter(product => product.category === categoryName).map(product => (
-                                    <Product {...product} />
+                                {products.filter(product => product.category === categoryName).map((product, index) => (
+                                    <Product key={index} {...product} />
                                 ))}
                             </main>
                         </section>

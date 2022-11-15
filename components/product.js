@@ -1,5 +1,7 @@
 import {useContext} from "react";
 import {ProductsContext} from "./productsContext";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Product({_id,name,price,title,photo,size,deviceColor,players,party,userAge,sizeDetails}){
     const {setSelectedProducts} = useContext(ProductsContext);
@@ -9,8 +11,8 @@ export default function Product({_id,name,price,title,photo,size,deviceColor,pla
     }
 
     return(
-        <a key={_id} id={_id} className="card block w-[250px] rounded-lg p-4 bg-slate-800 shadow-sm shadow-indigo-800">
-            <img
+        <Link key={_id} id={_id} className="card block w-[250px] rounded-lg p-4 bg-slate-800 shadow-sm shadow-indigo-800">
+            <Image
                 alt={title}
                 src={photo.all || photo.front}
                 className="h-56 w-full rounded-md object-contain p-3 bg-white"
@@ -113,6 +115,6 @@ export default function Product({_id,name,price,title,photo,size,deviceColor,pla
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     )
 }

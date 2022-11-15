@@ -4,6 +4,8 @@ import {ProductsContext} from "../components/productsContext";
 import { useContext, useEffect, useState} from "react";
 import Loading from "../components/loading";
 import ContanctInfomation from "../components/contactInformation";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Checkout() {
 
@@ -65,10 +67,10 @@ export default function Checkout() {
                                 const amount = selectedProducts.filter(id => id === product._id).length;
                                 if (amount === 0) return;
                                 return (
-                                <li className="w-full tabletS:w-[300px] flex py-6 px-4 bg-slate-800 rounded-lg">
+                                <li key={product._id} className="w-full tabletS:w-[300px] flex py-6 px-4 bg-slate-800 rounded-lg">
                                     <div className="h-28 w-24 p-3 bg-white flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
 
-                            <img src={product.photo.all || product.photo.front}
+                            <Image src={product.photo.all || product.photo.front}
                                  alt={product.title}
                                  className="h-full w-full object-contain object-center" />
                             </div>
@@ -77,7 +79,7 @@ export default function Checkout() {
                                 <div>
                                     <div className="flex justify-between text-base font-medium">
                                         <h3 className={'h-[69px] line-clamp-3 text-ellipsis custom-break'}>
-                                            <a href="#">{product.name}</a>
+                                            <Link href="#">{product.name}</Link>
                                         </h3>
                                         <p className="ml-4">${product.price}</p>
                                     </div>
